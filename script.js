@@ -31,14 +31,56 @@ buildButton.addEventListener("click", function () {
                 ></textarea>
             </div>
 
-            <div class="plan-section">
-                <label for="groups">Experimental Groups</label>
-                <textarea
-                    id="groups"
-                    rows="4"
-                    placeholder="List the experimental groups needed to test your hypothesis."
-                ></textarea>
-            </div>
+          <div class="plan-section">
+    <h3>Experimental Groups</h3>
+    <p class="helper-text">
+        Add each group included in your experimental design.
+    </p>
+
+    <div id="groups-container">
+
+        <div class="group-card">
+
+            <h4>Group 1</h4>
+
+            <label>Group Name</label>
+            <input
+                type="text"
+                class="group-name"
+                placeholder="e.g., Untreated control"
+            >
+
+            <label>Treatment / Condition</label>
+            <input
+                type="text"
+                class="group-treatment"
+                placeholder="e.g., No treatment"
+            >
+
+            <label>Sample Size (n)</label>
+            <input
+                type="number"
+                class="group-size"
+                min="1"
+                placeholder="e.g., 3"
+            >
+
+            <label>Timepoint</label>
+            <input
+                type="text"
+                class="group-timepoint"
+                placeholder="e.g., 72 hours"
+            >
+
+        </div>
+
+    </div>
+
+    <button id="add-group" type="button" class="secondary-button">
+        + Add Experimental Group
+    </button>
+
+</div>
 
             <div class="plan-section">
                 <label for="controls">Controls</label>
