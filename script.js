@@ -206,15 +206,7 @@ groupCards.forEach(function (card) {
 
 });
 
-if (
-    hypothesis.trim() === "" ||
-    controls.trim() === "" ||
-    primaryEndpoint.trim() === "" ||
-    readouts.trim() === ""
-)  {
-    alert("Please complete all sections before generating your summary.");
-    return;
-}
+
     const question = researchQuestion.value;
         
     const designChecks = [
