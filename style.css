@@ -118,3 +118,51 @@ button:hover {
     line-height: 1.6;
     white-space: pre-wrap;
 }
+.helper-text {
+    color: #6b7280;
+    margin-top: -4px;
+    margin-bottom: 20px;
+}
+
+.group-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.group-card h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.group-card label {
+    margin-top: 14px;
+}
+
+.group-card input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.group-card input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.secondary-button {
+    background: white;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+}
+
+.secondary-button:hover {
+    background: #eff6ff;
+}
