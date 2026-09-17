@@ -162,20 +162,51 @@ document.addEventListener("click", function (event) {
 
     if (event.target.id === "generate-summary") {
 
-        const hypothesis = document.getElementById("hypothesis").value;
-        const groups = document.getElementById("groups").value;
-        const controls = document.getElementById("controls").value;
-        const readouts = document.getElementById("readouts").value;
+const hypothesis = document.getElementById("hypothesis").value;
+const controls = document.getElementById("controls").value;
+const readouts = document.getElementById("readouts").value;
 
-        if (
-            hypothesis.trim() === "" ||
-            groups.trim() === "" ||
-            controls.trim() === "" ||
-            readouts.trim() === ""
-        ) {
-            alert("Please complete all sections before generating your summary.");
-            return;
-        }
+const groupCards = document.querySelectorAll(".group-card");
+const groups = [];
+
+groupCards.forEach(function (card) {
+
+    const name = card.querySelector(".group-name").value;
+    const treatment = card.querySelector(".group-treatment").value;
+    const size = card.querySelector(".group-size").value;
+    const timepoint = card.querySelector(".group-timepoint").value;
+
+    groups.push({
+        name: name,
+        treatment: treatment,
+        size: size,
+        timepoint: timepoint
+    });
+
+});
+
+if (
+    hypothesis.trim() === "" ||
+    controls.trim() === "" ||
+    readouts.trim() === ""
+) {
+    alert("Please complete all sections before generating your summary.");
+    return;
+}
+        let groupsHTML = "";
+
+groups.forEach(function (group, index) {
+
+    groupsHTML += `
+        <div class="summary-group">
+            <h4>Group ${index + 1}: ${group.name}</h4>
+            <p><strong>Treatment / Condition:</strong> ${group.treatment}</p>
+            <p><strong>Sample Size:</strong> n = ${group.size}</p>
+            <p><strong>Timepoint:</strong> ${group.timepoint}</p>
+        </div>
+    `;
+
+});
 
         const question = researchQuestion.value;
 
@@ -205,8 +236,8 @@ document.addEventListener("click", function (event) {
                 </div>
 
                 <div class="summary-section">
-                    <h3>Experimental Readouts</h3>
-                    <p>${readouts}</p>
+                    <h3>Experimental Groups</h3>
+                    ${groupsHTML}
                 </div>
 
                 <button id="start-over" type="button">
