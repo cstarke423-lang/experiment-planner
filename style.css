@@ -225,3 +225,27 @@ button:hover {
     outline: none;
     border-color: #2563eb;
 }
+
+.timeline-summary {
+    margin-top: 12px;
+}
+
+.timeline-summary-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.timeline-summary-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-summary-item strong {
+    font-weight: bold;
+}
+
+.timeline-summary-item span {
+    line-height: 1.5;
+}
