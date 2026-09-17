@@ -215,6 +215,8 @@ if (
     alert("Please complete all sections before generating your summary.");
     return;
 }
+    const question = researchQuestion.value;
+        
     const designChecks = [
     {
         label: "Research question defined",
@@ -286,8 +288,6 @@ groups.forEach(function (group, index) {
     `;
 
 });
-
-        const question = researchQuestion.value;
 
         output.innerHTML = `
             <div class="experiment-plan">
