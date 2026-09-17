@@ -113,7 +113,7 @@ buildButton.addEventListener("click", function () {
 
     addGroupButton.addEventListener("click", function () {
 
-        groupCount++;
+        groupCount = document.querySelectorAll(".group-card").length + 1;
 
         const newGroup = document.createElement("div");
         newGroup.classList.add("group-card");
