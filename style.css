@@ -166,3 +166,35 @@ button:hover {
 .secondary-button:hover {
     background: #eff6ff;
 }
+.design-check {
+    margin: 24px 0 32px 0;
+    padding: 24px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.design-check h3 {
+    margin-top: 0;
+}
+
+.check-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+.check-item.complete {
+    color: #166534;
+}
+
+.check-item.incomplete {
+    color: #92400e;
+}
+
+.check-score {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    font-weight: bold;
+}
