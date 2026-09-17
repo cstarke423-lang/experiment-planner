@@ -211,6 +211,38 @@ buildButton.addEventListener("click", function () {
 
         groupsContainer.appendChild(newGroup);
     });
+
+    const addTimepointButton = document.getElementById("add-timepoint");
+    const timelineContainer = document.getElementById("timeline-container");
+
+    addTimepointButton.addEventListener("click", function () {
+
+        const newTimepoint = document.createElement("div");
+        newTimepoint.classList.add("timeline-item");
+
+        newTimepoint.innerHTML = `
+            <label>Timepoint</label>
+            <input
+                type="text"
+                class="timeline-time"
+                placeholder="e.g., Day 3"
+            >
+
+            <label>Activity</label>
+            <input
+                type="text"
+                class="timeline-activity"
+                placeholder="e.g., Collect samples"
+            >
+
+            <button type="button" class="remove-timepoint">
+                Remove Timepoint
+            </button>
+        `;
+
+        timelineContainer.appendChild(newTimepoint);
+    });
+    
 });
 document.addEventListener("click", function (event) {
 
