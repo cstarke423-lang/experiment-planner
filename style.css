@@ -100,3 +100,21 @@ button:hover {
     color: #b91c1c;
     font-weight: bold;
 }
+
+.summary-section {
+    margin-top: 24px;
+    padding: 20px;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+.summary-section h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.summary-section p {
+    margin-bottom: 0;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
