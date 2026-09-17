@@ -230,3 +230,18 @@ document.addEventListener("click", function (event) {
     }
 
 });
+
+document.addEventListener("click", function (event) {
+
+    if (event.target.classList.contains("remove-group")) {
+
+        event.target.closest(".group-card").remove();
+
+        const groupCards = document.querySelectorAll(".group-card");
+
+        groupCards.forEach(function (card, index) {
+            card.querySelector("h4").textContent = `Group ${index + 1}`;
+        });
+    }
+
+});
