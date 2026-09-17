@@ -440,3 +440,13 @@ document.addEventListener("click", function (event) {
     }
 
 });
+
+document.addEventListener("click", function (event) {
+
+    if (event.target.classList.contains("remove-timepoint")) {
+
+        event.target.closest(".timeline-item").remove();
+
+    }
+
+});
