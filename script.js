@@ -119,6 +119,41 @@ buildButton.addEventListener("click", function () {
     ></textarea>
 </div>
 
+<div class="plan-section">
+    <h3>Experimental Timeline</h3>
+
+    <p class="helper-text">
+        Add the major timepoints and activities in your experiment.
+    </p>
+
+    <div id="timeline-container">
+
+        <div class="timeline-item">
+
+            <label>Timepoint</label>
+            <input
+                type="text"
+                class="timeline-time"
+                placeholder="e.g., Day 0"
+            >
+
+            <label>Activity</label>
+            <input
+                type="text"
+                class="timeline-activity"
+                placeholder="e.g., Add treatment"
+            >
+
+        </div>
+
+    </div>
+
+    <button id="add-timepoint" type="button" class="secondary-button">
+        + Add Timepoint
+    </button>
+
+</div>
+
             <button id="generate-summary" type="button">
                 Generate Experiment Summary
             </button>
