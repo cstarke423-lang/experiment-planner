@@ -254,6 +254,21 @@ const primaryEndpoint = document.getElementById("primary-endpoint").value;
 const secondaryEndpoints = document.getElementById("secondary-endpoints").value;
 const readouts = document.getElementById("readouts").value;
 
+const timelineItems = document.querySelectorAll(".timeline-item");
+const timeline = [];
+
+timelineItems.forEach(function (item) {
+
+    const time = item.querySelector(".timeline-time").value;
+    const activity = item.querySelector(".timeline-activity").value;
+
+    timeline.push({
+        time: time,
+        activity: activity
+    });
+
+});
+        
 const groupCards = document.querySelectorAll(".group-card");
 const groups = [];
 
@@ -303,10 +318,16 @@ groupCards.forEach(function (card) {
         label: "Primary endpoint identified",
         complete: primaryEndpoint.trim() !== ""
     },
-    {
-        label: "Assay / readout identified",
-        complete: readouts.trim() !== ""
-    }
+{
+    label: "Assay / readout identified",
+    complete: readouts.trim() !== ""
+},
+{
+    label: "Experimental timeline defined",
+    complete: timeline.some(function (item) {
+        return item.time.trim() !== "" && item.activity.trim() !== "";
+    })
+}
 ];
 
 let completedChecks = 0;
@@ -333,6 +354,20 @@ designChecks.forEach(function (check) {
     }
 
 });
+
+let timelineHTML = "";
+
+timeline.forEach(function (item) {
+
+    timelineHTML += `
+        <div class="timeline-summary-item">
+            <strong>${item.time}</strong>
+            <span>${item.activity}</span>
+        </div>
+    `;
+
+});
+        
         let groupsHTML = "";
 
 groups.forEach(function (group, index) {
@@ -398,12 +433,20 @@ groups.forEach(function (group, index) {
                     <h3>Secondary Endpoints</h3>
                     <p>${secondaryEndpoints || "None specified"}</p>
                 </div>
-
+                
                 <div class="summary-section">
                     <h3>Assays / Readouts</h3>
                     <p>${readouts}</p>
                 </div>
-
+                
+                <div class="summary-section">
+                    <h3>Experimental Timeline</h3>
+                
+                    <div class="timeline-summary">
+                        ${timelineHTML || "<p>No timeline specified.</p>"}
+                    </div>
+                </div>
+                
                 <button id="start-over" type="button">
                     Start New Experiment
                 </button>
