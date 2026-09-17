@@ -215,6 +215,63 @@ if (
     alert("Please complete all sections before generating your summary.");
     return;
 }
+    const designChecks = [
+    {
+        label: "Research question defined",
+        complete: question.trim() !== ""
+    },
+    {
+        label: "Hypothesis defined",
+        complete: hypothesis.trim() !== ""
+    },
+    {
+        label: "At least 2 experimental groups included",
+        complete: groups.length >= 2
+    },
+    {
+        label: "Sample size specified for every group",
+        complete: groups.every(function (group) {
+            return group.size.trim() !== "";
+        })
+    },
+    {
+        label: "Controls defined",
+        complete: controls.trim() !== ""
+    },
+    {
+        label: "Primary endpoint identified",
+        complete: primaryEndpoint.trim() !== ""
+    },
+    {
+        label: "Assay / readout identified",
+        complete: readouts.trim() !== ""
+    }
+];
+
+let completedChecks = 0;
+let designCheckHTML = "";
+
+designChecks.forEach(function (check) {
+
+    if (check.complete) {
+        completedChecks++;
+
+        designCheckHTML += `
+            <div class="check-item complete">
+                <span>✓</span>
+                <span>${check.label}</span>
+            </div>
+        `;
+    } else {
+        designCheckHTML += `
+            <div class="check-item incomplete">
+                <span>⚠</span>
+                <span>${check.label}</span>
+            </div>
+        `;
+    }
+
+});
         let groupsHTML = "";
 
 groups.forEach(function (group, index) {
@@ -236,6 +293,22 @@ groups.forEach(function (group, index) {
             <div class="experiment-plan">
 
                 <h2>Experiment Summary</h2>
+
+                <div class="design-check">
+
+                <h3>Design Check</h3>
+            
+                <p class="helper-text">
+                    Review the completeness of your experimental plan.
+                </p>
+            
+                ${designCheckHTML}
+            
+                <p class="check-score">
+                    ${completedChecks} of ${designChecks.length} planning components complete
+                </p>
+            
+                </div>
 
                 <div class="summary-section">
                     <h3>Research Question</h3>
