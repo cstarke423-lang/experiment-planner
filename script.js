@@ -65,3 +65,63 @@ buildButton.addEventListener("click", function () {
         </div>
     `;
 });
+document.addEventListener("click", function (event) {
+
+    if (event.target.id === "generate-summary") {
+
+        const hypothesis = document.getElementById("hypothesis").value;
+        const groups = document.getElementById("groups").value;
+        const controls = document.getElementById("controls").value;
+        const readouts = document.getElementById("readouts").value;
+
+        if (
+            hypothesis.trim() === "" ||
+            groups.trim() === "" ||
+            controls.trim() === "" ||
+            readouts.trim() === ""
+        ) {
+            alert("Please complete all sections before generating your summary.");
+            return;
+        }
+
+        const question = researchQuestion.value;
+
+        output.innerHTML = `
+            <div class="experiment-plan">
+
+                <h2>Experiment Summary</h2>
+
+                <div class="summary-section">
+                    <h3>Research Question</h3>
+                    <p>${question}</p>
+                </div>
+
+                <div class="summary-section">
+                    <h3>Hypothesis</h3>
+                    <p>${hypothesis}</p>
+                </div>
+
+                <div class="summary-section">
+                    <h3>Experimental Groups</h3>
+                    <p>${groups}</p>
+                </div>
+
+                <div class="summary-section">
+                    <h3>Controls</h3>
+                    <p>${controls}</p>
+                </div>
+
+                <div class="summary-section">
+                    <h3>Experimental Readouts</h3>
+                    <p>${readouts}</p>
+                </div>
+
+                <button id="start-over" type="button">
+                    Start New Experiment
+                </button>
+
+            </div>
+        `;
+    }
+
+});
