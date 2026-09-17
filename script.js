@@ -91,14 +91,33 @@ buildButton.addEventListener("click", function () {
                 ></textarea>
             </div>
 
-            <div class="plan-section">
-                <label for="readouts">Experimental Readouts</label>
-                <textarea
-                    id="readouts"
-                    rows="4"
-                    placeholder="What measurements or assays will answer your research question?"
-                ></textarea>
-            </div>
+<div class="plan-section">
+    <h3>Endpoints & Readouts</h3>
+    <p class="helper-text">
+        Define what you will measure and how you will measure it.
+    </p>
+
+    <label for="primary-endpoint">Primary Endpoint</label>
+    <textarea
+        id="primary-endpoint"
+        rows="3"
+        placeholder="What is the main outcome that will determine whether your hypothesis is supported?"
+    ></textarea>
+
+    <label for="secondary-endpoints">Secondary Endpoints</label>
+    <textarea
+        id="secondary-endpoints"
+        rows="3"
+        placeholder="Optional: What additional outcomes will you evaluate?"
+    ></textarea>
+
+    <label for="readouts">Assays / Readouts</label>
+    <textarea
+        id="readouts"
+        rows="3"
+        placeholder="What assays or methods will be used to measure these outcomes?"
+    ></textarea>
+</div>
 
             <button id="generate-summary" type="button">
                 Generate Experiment Summary
@@ -164,6 +183,8 @@ document.addEventListener("click", function (event) {
 
 const hypothesis = document.getElementById("hypothesis").value;
 const controls = document.getElementById("controls").value;
+const primaryEndpoint = document.getElementById("primary-endpoint").value;
+const secondaryEndpoints = document.getElementById("secondary-endpoints").value;
 const readouts = document.getElementById("readouts").value;
 
 const groupCards = document.querySelectorAll(".group-card");
@@ -188,8 +209,9 @@ groupCards.forEach(function (card) {
 if (
     hypothesis.trim() === "" ||
     controls.trim() === "" ||
+    primaryEndpoint.trim() === "" ||
     readouts.trim() === ""
-) {
+)  {
     alert("Please complete all sections before generating your summary.");
     return;
 }
@@ -227,7 +249,7 @@ groups.forEach(function (group, index) {
 
                 <div class="summary-section">
                     <h3>Experimental Groups</h3>
-                    <p>${groups}</p>
+                    ${groupsHTML}
                 </div>
 
                 <div class="summary-section">
@@ -236,8 +258,18 @@ groups.forEach(function (group, index) {
                 </div>
 
                 <div class="summary-section">
-                    <h3>Experimental Groups</h3>
-                    ${groupsHTML}
+                    <h3>Primary Endpoint</h3>
+                    <p>${primaryEndpoint}</p>
+                </div>
+
+                <div class="summary-section">
+                    <h3>Secondary Endpoints</h3>
+                    <p>${secondaryEndpoints || "None specified"}</p>
+                </div>
+
+                <div class="summary-section">
+                    <h3>Assays / Readouts</h3>
+                    <p>${readouts}</p>
                 </div>
 
                 <button id="start-over" type="button">
@@ -246,7 +278,7 @@ groups.forEach(function (group, index) {
 
             </div>
         `;
-    }
+            }
 
 });
 
