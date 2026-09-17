@@ -106,6 +106,56 @@ buildButton.addEventListener("click", function () {
 
         </div>
     `;
+    let groupCount = 1;
+
+    const addGroupButton = document.getElementById("add-group");
+    const groupsContainer = document.getElementById("groups-container");
+
+    addGroupButton.addEventListener("click", function () {
+
+        groupCount++;
+
+        const newGroup = document.createElement("div");
+        newGroup.classList.add("group-card");
+
+        newGroup.innerHTML = `
+            <h4>Group ${groupCount}</h4>
+
+            <label>Group Name</label>
+            <input
+                type="text"
+                class="group-name"
+                placeholder="e.g., Treatment X"
+            >
+
+            <label>Treatment / Condition</label>
+            <input
+                type="text"
+                class="group-treatment"
+                placeholder="e.g., 10 µg/mL Treatment X"
+            >
+
+            <label>Sample Size (n)</label>
+            <input
+                type="number"
+                class="group-size"
+                min="1"
+                placeholder="e.g., 3"
+            >
+
+            <label>Timepoint</label>
+            <input
+                type="text"
+                class="group-timepoint"
+                placeholder="e.g., 72 hours"
+            >
+
+            <button type="button" class="remove-group">
+                Remove Group
+            </button>
+        `;
+
+        groupsContainer.appendChild(newGroup);
 });
 document.addEventListener("click", function (event) {
 
