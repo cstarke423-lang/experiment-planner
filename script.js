@@ -125,3 +125,15 @@ document.addEventListener("click", function (event) {
     }
 
 });
+
+document.addEventListener("click", function (event) {
+
+    if (event.target.id === "start-over") {
+
+        researchQuestion.value = "";
+        output.innerHTML = "";
+
+        researchQuestion.focus();
+    }
+
+});
