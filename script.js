@@ -156,6 +156,7 @@ buildButton.addEventListener("click", function () {
         `;
 
         groupsContainer.appendChild(newGroup);
+    });
 });
 document.addEventListener("click", function (event) {
 
