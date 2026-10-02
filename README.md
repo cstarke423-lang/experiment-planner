@@ -8,7 +8,7 @@ Experimental design involves keeping track of many interconnected decisions, inc
 
 I built Experiment Planner to explore how software tools can make this planning process more structured and easier to communicate.
 
-## Planned Features
+## Features
 
 - Define a research question and hypothesis
 - Create experimental and control groups
@@ -16,7 +16,3 @@ I built Experiment Planner to explore how software tools can make this planning 
 - Build an experimental timeline
 - Generate a structured experiment summary
 - Export or save an experimental plan
-
-## Project Status
-
-🚧 In development
